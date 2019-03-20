@@ -1,0 +1,35 @@
+﻿{
+    "name": "AdSkipper",
+    "version": "1.0",
+    "description": "代替使用者自動將廣告關閉，免去使用者手動掠過廣告或關閉視窗的麻煩",
+    "permissions": ["http://*.google.com.tw/", "https://*.google.com.tw/", "tabs", "activeTab", "declarativeContent", "storage", "webNavigation"],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "content_scripts": [
+        {
+         "matches": ["*://www.youtube.com/*"],
+         "run_at": "document_start",
+         "css": [],
+         "js": ["content_script.js"]
+        }
+    ],
+    "options_page": "options.html",
+    "page_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/AdSkipper.png",
+        "32": "images/AdSkipper.png",
+        "48": "images/AdSkipper.png",
+        "128": "images/AdSkipper.png"
+      }
+    },
+    "icons": {
+      "16": "images/AdSkipper.png",
+      "32": "images/AdSkipper.png",
+      "48": "images/AdSkipper.png",
+      "128": "images/AdSkipper.png"
+    },
+    "manifest_version": 2
+  }
